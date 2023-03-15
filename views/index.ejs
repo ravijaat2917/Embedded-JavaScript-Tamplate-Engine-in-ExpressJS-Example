@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <!-- invclude tamplate in ejs -->
+    <%- include('./includes/navigation.ejs') %> 
+
+    <h1>EJS Tamplate Engine</h1>
+
+    <h1>
+
+        <!-- Displaying Variable Data -->
+        <%= name %>
+        
+        <!-- Creating Variable -->
+        <% var id = 110 ; %>
+        <%= id %>
+
+        <!-- Comments -->
+        <%# Comment will not be rendered in html %>
+
+        <!-- if condition -->
+        <% if(name) { %>
+            <h3>Hello <%=name%> Welcome...</h3>
+        <% } %>
+
+        <!-- if with else condition -->
+        <% if(id==10) { %> 
+            <p>This is <%= id %></p>
+        <% }else{ %>    
+            <p>Id is not equal to <%=id%></p>
+        <% } %>    
+
+        <!-- for loop -->
+        <% for(let i=0 ; i<=5 ; i++){ %>
+            <span><%= i %> </span>
+        <% } %>    
+
+        <br>
+        <!-- for in loop -->
+        <% for(let key in marks){ %>
+            <%=marks[key]%>
+        <% } %>
+
+        <br>
+        <!-- for of loop -->
+        <% for(let key of marks){ %>
+            <%=key%>
+        <% } %>
+
+        <br>
+        <!-- while loop -->
+        <% while(i<=4){ %>
+            <%=i%>
+            <%i++%>
+        <% } %>
+
+        <br>
+        <!-- for each loop -->
+        <% marks.forEach((value)=>{ %>
+            <% if(value>40) { %>
+                <%= value %>
+            <% } %>
+        <%}) %>
+
+        <br>
+        <!-- function call -->
+        <% var current = new Date(); %>
+        <%=current.toLocaleString()%>
+    </h1>
+</body>
+</html>
